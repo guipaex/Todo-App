@@ -4,7 +4,7 @@ import com.example.todolist.domain.Todo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class TodoRespositoryImpl(
+class TodoRepositoryImpl(
     private val dao: TodoDao
 ) : TodoRepository {
     override suspend fun insert(title: String, description: String?) {

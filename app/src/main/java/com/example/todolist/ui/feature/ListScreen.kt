@@ -71,6 +71,9 @@ fun ListContent (
 @Preview
 @Composable
 private fun ListContentPreview() {
+
+    val todosFromDatabase =
+
     ToDoListTheme {
         ListContent(todos =  listOf( todo1, todo2, todo3), onAddItemClick = {},)
     }
