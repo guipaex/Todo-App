@@ -28,13 +28,13 @@ import com.example.todolist.ui.feature.addedit.AddEditViewModel
 import com.example.todolist.ui.theme.ToDoListTheme
 
 @Composable
-fun AddEditScreen(navigateBack: () -> Unit) {
+fun AddEditScreen(id: Long?, navigateBack: () -> Unit) {
     val context = LocalContext.current.applicationContext
     val database = TodoDatabaseProvider.provide(context)
     val repository = TodoRepositoryImpl(dao = database.todoDao)
 
     val viewModel = viewModel<AddEditViewModel> {
-        AddEditViewModel( repository )
+        AddEditViewModel( id, repository )
     }
 
     val title = viewModel.title
@@ -74,8 +74,7 @@ fun AddEditContent(
     title: String,
     description: String?,
     onEvent: (AddEditEvent) -> Unit,
-    snackbarHostState: SnackbarHostState,
-    modifier: Modifier = Modifier) {
+    snackbarHostState: SnackbarHostState) {
     Scaffold (
         floatingActionButton = {
             FloatingActionButton(

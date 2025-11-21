@@ -5,11 +5,11 @@ import kotlinx.coroutines.flow.Flow
 
 interface TodoRepository {
 
-    suspend fun insert(title: String, description: String?)
+    suspend fun insert(title: String, description: String?, id: Long? = null)
 
     suspend fun updateCompleted(id: Long, isCompleted: Boolean)
 
-    suspend fun delete(entity: TodoEntity)
+    suspend fun delete(entity: Long)
 
     fun getAll(): Flow<List<Todo>>
 
